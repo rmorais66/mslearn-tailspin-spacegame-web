@@ -69,5 +69,4 @@ steps:
     slotName: 'production'
     package: '$(Pipeline.Workspace)/drop/Release/Release/Tailspin.SpaceGame.Web.zip'
     runtimeStack: 'DOTNETCORE|6.0'
-    #startUpCommand: 'dotnet /home/vsts/work/1/s/Tailspin.SpaceGame.Web/bin/Release/net6.0/Tailspin.SpaceGame.Web.dll'
-    startUpCommand: '/bin/sh'
+    startUpCommand: 'dotnet /home/vsts/work/1/s/Tailspin.SpaceGame.Web/bin/Release/net6.0/Tailspin.SpaceGame.Web.dll'
