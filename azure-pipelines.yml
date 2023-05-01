@@ -54,6 +54,7 @@ steps:
     artifactName: drop
     targetPath: '$(Pipeline.Workspace)/drop/Release'
 
+# Pipeline.Workspace = /home/vsts/work/1
 - script: pwd && ls -lR
   displayName: 'show $(Pipeline.Workspace) content'
   workingDirectory: '$(Pipeline.Workspace)'
