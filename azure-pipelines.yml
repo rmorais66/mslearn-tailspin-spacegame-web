@@ -47,3 +47,13 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
+
+- task: DownloadPipelineArtifact@2
+  inputs:
+    buildType: current
+    artifactName: drop
+    targetPath: '$(Pipeline.Workspace)/drop/Release'
+
+- script: pwd && ls -lR
+  displayName: 'show $(Pipeline.Workspace) content'
+  workingDirectory: '$(Pipeline.Workspace)'
