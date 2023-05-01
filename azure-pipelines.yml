@@ -57,3 +57,15 @@ steps:
 - script: pwd && ls -lR
   displayName: 'show $(Pipeline.Workspace) content'
   workingDirectory: '$(Pipeline.Workspace)'
+
+- task: AzureWebApp@1
+  inputs:
+    azureSubscription: 'Azure subscription 1(aa286134-b25f-488a-9328-655dcd8e56ce)'
+    appType: 'webAppLinux'
+    appName: 'rmorais66pl'
+    deployToSlotOrASE: true
+    resourceGroupName: 'azpipeline'
+    slotName: 'production'
+    package: '$(Pipeline.Workspace)/drop/Release/Tailspin.SpaceGame.Web.zip'
+    runtimeStack: 'DOTNETCORE|6.0'
+    startUpCommand: 'dotnet run --configuration Release --no-build --project Tailspin.SpaceGame.Web'
